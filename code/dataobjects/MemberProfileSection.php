@@ -40,8 +40,8 @@ class MemberProfileSection extends DataObject {
 		$this->member = $member;
 	}
 
-	public function getCMSFields() {
-		$fields = parent::getCMSFields();
+	public function getCMSFields($params = null) {
+		$fields = parent::getCMSFields($params);
 
 		$fields->addFieldToTab('Root.Main', new HeaderField(
 			'ProfileSectionTitle',

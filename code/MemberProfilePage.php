@@ -125,8 +125,8 @@ class MemberProfilePage extends Page implements PermissionProvider {
 		);
 	}
 
-	public function getCMSFields() {
-		$fields = parent::getCMSFields();
+	public function getCMSFields($params = null) {
+		$fields = parent::getCMSFields($params);
 
 		Requirements::javascript(THIRDPARTY_DIR . '/jquery/jquery.js');
 		Requirements::javascript(THIRDPARTY_DIR . '/jquery-livequery/jquery.livequery.js');

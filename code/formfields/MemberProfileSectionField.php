@@ -42,7 +42,7 @@ class MemberProfileSectionField extends OrderableComplexTableField {
 	/**
 	 * @return Form
 	 */
-	public function AddForm() {
+	public function AddForm($childID = null) {
 		return new $this->popupClass(
 			$this,
 			'AddForm',

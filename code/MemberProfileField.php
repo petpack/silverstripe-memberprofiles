@@ -54,8 +54,8 @@ class MemberProfileField extends DataObject {
 	/**
 	 * @return
 	 */
-	public function getCMSFields() {
-		$fields       = parent::getCMSFields();
+	public function getCMSFields($params = null) {
+		$fields       = parent::getCMSFields($params);
 		$memberFields = $this->getMemberFields();
 		$memberField  = $memberFields->dataFieldByName($this->MemberField);
 
@@ -122,7 +122,7 @@ class MemberProfileField extends DataObject {
 	/**
 	 * @return array
 	 */
-	public function fieldLabels() {
+	public function fieldLabels($includerelations = true) {
 		return array_merge(parent::fieldLabels(), array (
 			'MemberField'       => _t('MemberProfiles.MEMBERFIELD', 'Member Field'),
 			'DefaultValue'      => _t('MemberProfiles.DEFAULTVALUE', 'Default Value'),

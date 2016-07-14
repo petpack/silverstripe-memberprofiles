@@ -86,7 +86,7 @@ class MemberProfileExtension extends DataObjectDecorator {
 		$fields->push(new CheckboxSetField('Groups', 'Groups', array(), $existing));
 	}
 
-	public function updateCMSFields($fields) {
+	public function updateCMSFields(FieldSet &$fields) {
 		$mainFields = $fields->fieldByName("Root")->fieldByName("Main")->Children;
 
 		$fields->removeByName('ValidationKey');

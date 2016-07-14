@@ -142,7 +142,7 @@ class MemberProfileViewer extends Page_Controller {
 	}
 
 	/**
-	 * @return int
+	 * @return SS_Int
 	 */
 	public function getPaginationStart() {
 		if ($start = $this->request->getVar('start')) {

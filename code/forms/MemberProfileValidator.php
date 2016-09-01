@@ -13,7 +13,9 @@ class MemberProfileValidator extends RequiredFields {
 	 * @param Member $member
 	 */
 	public function __construct($fields, $member = null) {
-		parent::__construct();
+		parent::__construct(
+			Array("Email")
+		);
 
 		$this->fields = $fields;
 		$this->member = $member;
@@ -32,9 +34,12 @@ class MemberProfileValidator extends RequiredFields {
 	}
 
 	public function php($data) {
+		
+		$valid = parent::php($data);
+		if (!$valid) return $valid;
+		
 		$member   = Member::currentUser();
-		$valid    = true;
-
+		
 		foreach($this->unique as $field) {
 			$other = DataObject::get_one (
 				'Member',
@@ -58,7 +63,7 @@ class MemberProfileValidator extends RequiredFields {
 			}
 		}
 
-		return $valid && parent::php($data);
+		return $valid;
 	}
 
 }
